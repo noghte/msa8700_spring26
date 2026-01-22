@@ -1,0 +1,157 @@
+{
+    "models": [
+        {
+            "name": "gpt-oss:20b",
+            "model": "gpt-oss:20b",
+            "modified_at": "2025-09-29T16:49:51.964689338Z",
+            "size": 13780173724,
+            "digest": "aa4295ac10c3afb60e6d711289fc6896f5aef82258997b9efdaed6d0cc4cd8b8",
+            "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "gptoss",
+                "families": [
+                    "gptoss"
+                ],
+                "parameter_size": "20.9B",
+                "quantization_level": "MXFP4"
+            }
+        },
+        {
+            "name": "all-minilm:latest",
+            "model": "all-minilm:latest",
+            "modified_at": "2025-09-29T16:46:41.208737827Z",
+            "size": 45960996,
+            "digest": "1b226e2802dbb772b5fc32a58f103ca1804ef7501331012de126ab22f67475ef",
+            "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "bert",
+                "families": [
+                    "bert"
+                ],
+                "parameter_size": "23M",
+                "quantization_level": "F16"
+            }
+        },
+        {
+            "name": "gemma3:27b",
+            "model": "gemma3:27b",
+            "modified_at": "2025-09-29T16:46:40.703743252Z",
+            "size": 17396936941,
+            "digest": "a418f5838eaf7fe2cfe0a3046c8384b68ba43a4435542c942f9db00a5f342203",
+            "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "gemma3",
+                "families": [
+                    "gemma3"
+                ],
+                "parameter_size": "27.4B",
+                "quantization_level": "Q4_K_M"
+            }
+        },
+        {
+            "name": "llama3.2-vision:90b",
+            "model": "llama3.2-vision:90b",
+            "modified_at": "2025-09-29T16:46:40.438746099Z",
+            "size": 54622563330,
+            "digest": "bee2a956f3a8be0bb75573def7b772f841558f21249bd6396b0f5838e974e064",
+            "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "mllama",
+                "families": [
+                    "mllama"
+                ],
+                "parameter_size": "88.6B",
+                "quantization_level": "Q4_K_M"
+            }
+        },
+        {
+            "name": "nomic-embed-text:latest",
+            "model": "nomic-embed-text:latest",
+            "modified_at": "2025-09-29T16:46:40.936740749Z",
+            "size": 274302450,
+            "digest": "0a109f422b47e3a30ba2b10eca18548e944e8a23073ee3f3e947efcf3c45e59f",
+            "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "nomic-bert",
+                "families": [
+                    "nomic-bert"
+                ],
+                "parameter_size": "137M",
+                "quantization_level": "F16"
+            }
+        },
+        {
+            "name": "llama3.2-vision:latest",
+            "model": "llama3.2-vision:latest",
+            "modified_at": "2025-09-29T16:37:25.10471902Z",
+            "size": 7816589186,
+            "digest": "6f2f9757ae97e8a3f8ea33d6adb2b11d93d9a35bef277cd2c0b1b5af8e8d0b1e",
+            "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "mllama",
+                "families": [
+                    "mllama"
+                ],
+                "parameter_size": "10.7B",
+                "quantization_level": "Q4_K_M"
+            }
+        },
+        {
+            "name": "command-r:latest",
+            "model": "command-r:latest",
+            "modified_at": "2025-09-29T16:35:45.26479442Z",
+            "size": 18719506654,
+            "digest": "7d96360d357f979f63a2be43d5bde200bfcbead950a4072e805d2196ae589aaa",
+            "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "command-r",
+                "families": [
+                    "command-r"
+                ],
+                "parameter_size": "32.3B",
+                "quantization_level": "Q4_0"
+            }
+        },
+        {
+            "name": "llama3.1:latest",
+            "model": "llama3.1:latest",
+            "modified_at": "2025-09-29T16:35:45.047796758Z",
+            "size": 4920753328,
+            "digest": "46e0c10c039e019119339687c3c1757cc81b9da49709a3b3924863ba87ca666e",
+            "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "llama",
+                "families": [
+                    "llama"
+                ],
+                "parameter_size": "8.0B",
+                "quantization_level": "Q4_K_M"
+            }
+        },
+        {
+            "name": "phi3:latest",
+            "model": "phi3:latest",
+            "modified_at": "2025-09-29T16:35:45.542791427Z",
+            "size": 2176178913,
+            "digest": "4f222292793889a9a40a020799cfd28d53f3e01af25d48e06c5e708610fc47e9",
+            "details": {
+                "parent_model": "",
+                "format": "gguf",
+                "family": "phi3",
+                "families": [
+                    "phi3"
+                ],
+                "parameter_size": "3.8B",
+                "quantization_level": "Q4_0"
+            }
+        }
+    ]
+}
