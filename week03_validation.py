@@ -7,11 +7,13 @@ from pydantic import BaseModel, Field, ValidationError
 from enum import Enum
 import json
 
+# sentiment enum (a type)
 class Sentiment(str, Enum):
     positive = "positive"
     neutral = "neutral"
     negative = "negative"
 
+# schema for pydantic
 class ReviewAnalysis(BaseModel):
     review:str = Field(description="the review text")
     sentiment:Sentiment = Field("must be positive, neutral, or negative")
@@ -29,7 +31,7 @@ for text in df["reviewText"].to_list()[:5]:
     Return ONLY a valid JSON object with these exact fields:
     - "review: a summary of the review in one or two sentences"
     - "sentiment: must be exactly one of: "positive", "neutral", or "negative"
-    - "confidence: a number between 0 to 1 representing your confidence"
+    - "confidence: a number between 1 to 100 representing your confidence"
     Do not explain. 
     Do not return anything else.
     Example output:
@@ -52,8 +54,11 @@ for text in df["reviewText"].to_list()[:5]:
         print("Confidence: ", result.confidence)
         print("Status: 😁 Valid!")
     except json.JSONDecodeError: # a JSON error
-        pass
-    except ValidationError:
-        pass
+        print("Error: Response is not JSON")
+    except ValidationError as e:
+        print("😔 Error!")
+        print("Review:", text)
+        print("Error Description:", e.errors()[0]["msg"])
+        print("Invalid Input:", e.errors()[0]["input"])
 
     print("\n=========\n")
