@@ -31,7 +31,7 @@ for text in df["reviewText"].to_list()[:5]:
     Return ONLY a valid JSON object with these exact fields:
     - "review: a summary of the review in one or two sentences"
     - "sentiment: must be exactly one of: "positive", "neutral", or "negative"
-    - "confidence: a number between 1 to 100 representing your confidence"
+    - "confidence: a number between 0 to 1 representing your confidence"
     Do not explain. 
     Do not return anything else.
     Example output:
