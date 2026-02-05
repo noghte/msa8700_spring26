@@ -62,6 +62,7 @@ if __name__ == "__main__":
             result = CountryInfo(**parsed_json)
             df.at[idx, 'Capital'] = result.capital
             df.at[idx, 'Continent'] = result.continent
+            
         except Exception as e:
             df.at[idx, 'Capital'] = "Error"
             df.at[idx, 'Continent'] = "Error"
