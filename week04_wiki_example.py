@@ -2,7 +2,7 @@ import pandas as pd
 import requests
 from bs4 import BeautifulSoup
 import os
-from pydantic import BaseModel, Field
+from pydantic import BaseModel, Field, ValidationError
 import requests
 import json
 
@@ -62,10 +62,20 @@ if __name__ == "__main__":
             result = CountryInfo(**parsed_json)
             df.at[idx, 'Capital'] = result.capital
             df.at[idx, 'Continent'] = result.continent
-            
+        except ValidationError as e:
+            print("😔 Error!")
+            print("Country:", row["Country"])
+            print("Error Description:", e.errors()[0]["msg"])
+            print("Invalid Input:", e.errors()[0]["input"])
+
         except Exception as e:
             df.at[idx, 'Capital'] = "Error"
             df.at[idx, 'Continent'] = "Error"
     
     df.to_csv("countries_enriched.csv")
 # Enrich our dataset to get the capital and the continent of each country
+
+# 1. Increase the rows to 20
+# 2. Include the population of the country (it should be a number and validated)
+# 3. Use two different LLMs (you can find LLM names in models.json) and store  results in separate columns
+# 4. "Say hello, how are you?" in the language of that country
