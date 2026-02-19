@@ -1,0 +1,27 @@
+{
+  "paper_id": "pmid_12345",
+  "title": "...",
+"keywords": ["obesity", "diabetes", "metabolic syndrome"],
+  "journal": "Journal of Clinical Medicine",
+  "publication_date": "2024-03-15",
+  "doi": "10.1234/jcm.2024.12345",
+  "publication_type": "journal-article", // vs book-chapter, conference, etc.
+  
+  "study_design": "cohort", // RCT, cross-sectional, case-control, etc.
+  "sample_size": 1250,
+  "population": "adults aged 40-65",
+  "geography": "United States",
+  "study_duration": "5 years",
+  
+  // Variable relationships extracted by LLM
+  "relationships": [
+    {
+      "predictor": "obesity", 
+      "outcome": "diabetes", 
+      "relationship_type": "causal",
+      "significance": "p<0.01",
+      "effect_size": "HR=2.3",
+      "evidence_text": "Obesity was significantly associated with increased diabetes risk..."
+    }
+  ]
+}
