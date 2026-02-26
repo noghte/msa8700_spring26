@@ -1,3 +1,9 @@
+## PIP LIBRARIES:
+
+# pip install -U langchain
+# pip install langgraph
+# pip install tavily-python
+
 import pandas as pd
 from langgraph.prebuilt import create_react_agent
 from langchain_ollama import ChatOllama
@@ -42,6 +48,8 @@ def web_search_product(product_query, max_results=10):
         max_results (int, optional): Defaults to 10.
     """
     travily_client = TavilyClient() # api_key="tvly-YOUR_API_KEY"
+    # If you're not using a .env file
+    # travily_client = TavilyClient(api_key=".....")
     response = travily_client.search(query=product_query, search_depth="basic",max_results=max_results)
     for result in response["results"]:
         if "amazon.com" in result["url"]:
@@ -77,7 +85,11 @@ if __name__ == "__main__":
     )
 
     # Example query
-    query = "What's the opinion of Aaron about Samsung Galaxy S3?"
+    # query = "What's the opinion of Aaron about Samsung Galaxy S3?"
+    
+    # Change the code to answer this query
+    query = "What's the reviewers about Samsung Galaxy S3?"
+
     messages = {
         "messages":
             [SystemMessage(content="Follow rules strictly."),
