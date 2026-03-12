@@ -1,3 +1,5 @@
+# https://opentdb.com/api_config.php
+
 ## PIP LIBRARIES:
 
 # pip install -U langchain
