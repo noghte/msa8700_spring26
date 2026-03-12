@@ -3,6 +3,7 @@
 # pip install -U langchain
 # pip install langgraph
 # pip install tavily-python
+# pip install langchain-ollama
 
 import pandas as pd
 from langgraph.prebuilt import create_react_agent
@@ -38,6 +39,26 @@ def extract_reviews_by_person(person_name, max_reviews=5):
     
     return "\n\n".join(reviews[:max_reviews])
 
+@tool 
+def extract_reviews_by_product(product_name, max_reviews=10):
+    """
+    Get reviews mentioning a specific product from amazon_reviews.csv
+
+    Args:
+        product_name (str): The product name to search for in review text.
+        max_reviews (int, optional): Maximum number of reviews. Defaults to 10.
+
+    Returns:
+        str: Reviews related the the product, concatenated.
+    """
+    df = load_reviews()
+    keyword = product_name.strip().lower()
+    mask = df["reviewText"].str.lower().str.contains(keyword, na=False)
+    reviews = df[mask]["reviewText"].tolist()
+    if len(reviews) == 0:
+        return f"No reviews found mentioning '{product_name}'"
+    return "\n\n".join(reviews[:max_reviews])
+
 @tool
 def web_search_product(product_query, max_results=10):
     """
@@ -63,7 +84,9 @@ if __name__ == "__main__":
     system_prompt = (
         "You are a concise analyst.\n"
         "Rules:\n"
-        "1) If asked about a reviewer's opinion, call extract_reviews_by_person, then find the Amazon link of the product using web_search_product tool\n"
+        "1) If asked about a reviewer's opinion, call extract_reviews_by_person,\n"
+        "2) If asked about a product in general, call extract_reviews_by_product,\n"
+        "3) Find the Amazon link of the product using web_search_product tool.\n"
         "Important: After calling tools, response in this format:\n"
         "Sentiment: Positive | Negative | Mixed | Neutral\n"
         "Evidence:\n"
@@ -75,12 +98,12 @@ if __name__ == "__main__":
     chat_model = ChatOllama(
         base_url = "http://10.230.100.240:17020",
         model="gpt-oss:20b",
-        temprature=0
+        temperature=0
     )
 
     graph = create_react_agent(
         model=chat_model,
-        tools=[extract_reviews_by_person, web_search_product],
+        tools=[extract_reviews_by_person, extract_reviews_by_product, web_search_product],
         prompt=system_prompt
     )
 
@@ -88,7 +111,7 @@ if __name__ == "__main__":
     # query = "What's the opinion of Aaron about Samsung Galaxy S3?"
     
     # Change the code to answer this query
-    query = "What's the reviewers about Samsung Galaxy S3?"
+    query = "What's the sentiment of reviewers about Sandisk 16GB?"
 
     messages = {
         "messages":
