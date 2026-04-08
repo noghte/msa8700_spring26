@@ -24,7 +24,7 @@ supervisor_agent = create_agent(
     system_prompt=SUPERVISOR_PROMPT,
 )
 
-query = "Schedule a team standup for tomorrow at 9am"
+query = "Schedule a team standup for tomorrow at 9am at New York office"
 ai_msg = supervisor_agent.invoke({"messages": [{"role": "user", "content": query}]})
 for msg in ai_msg["messages"]:
     print("----START----\n")
